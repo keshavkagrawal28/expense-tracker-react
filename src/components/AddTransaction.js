@@ -14,7 +14,12 @@ export const AddTransaction = () => {
       amount: parseFloat(amount),
     };
 
-    addTransaction(newTransaction);
+    if (
+      newTransaction.text !== '' &&
+      !isNaN(newTransaction.amount) &&
+      newTransaction.amount !== 0
+    )
+      addTransaction(newTransaction);
     setText('');
     setAmount(0);
   };
